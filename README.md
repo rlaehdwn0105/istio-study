@@ -1,15 +1,21 @@
-# Istio Study Workspace
+# Istio Study Atlas
 
-이 디렉터리는 Istio 스터디용 로컬 워크스페이스입니다.
+이 저장소는 `Istio 학습 블로그 + 자료 아카이브` 형태로 재구성한 워크스페이스다.
 
-## 파일 구성
+## 읽는 시작점
 
-- `curriculum/istio-study-curriculum.md`: 주차별 학습 커리큘럼
-- `resources/links.md`: 블로그/공식문서/영상 링크 모음
-- `downloads/`: 다운로드한 문서와 샘플 저장 위치
+- `index.html`: 사이트 홈
+- `pages/week1.html`: 1주차 상세 글
 
-## 권장 진행
+## 보조 자료
 
-1. `curriculum/istio-study-curriculum.md` 순서대로 학습
-2. 각 주차에서 `resources/links.md`의 참고 자료 확인
-3. YAML 실습은 VS Code에서 `downloads/`와 별도 실습 디렉터리 기준으로 관리
+- `week1/practice/`: 실습 YAML과 실행 가이드
+- `week1/sources/`: 원문 HTML 보관본
+- `resources/links.md`: 참고 링크 모음
+- `downloads/`: 내려받은 공식 문서와 샘플
+
+## 운영 원칙
+
+- 실제 학습은 `pages/`의 블로그형 문서를 기준으로 진행
+- 원문 HTML은 비교와 출처 검증 용도로만 유지
+- 도식은 저장소 안의 SVG 자산으로 직접 관리

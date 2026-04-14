@@ -1,0 +1,32 @@
+<svg width="1440" height="920" viewBox="0 0 1440 920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="920" rx="36" fill="#FBF6EC"/>
+  <text x="104" y="118" fill="#7D2F16" font-family="Georgia, serif" font-size="46" font-weight="700">Bookinfo 서비스 관계</text>
+  <text x="104" y="160" fill="#675C4B" font-family="Georgia, serif" font-size="24">1주차에서는 구조를 외우기보다, 이후 실습의 공통 실험장이라는 점을 이해하는 것이 중요하다.</text>
+
+  <rect x="544" y="240" width="352" height="120" rx="24" fill="#F8E0D4"/>
+  <text x="614" y="313" fill="#5A2414" font-family="Georgia, serif" font-size="34" font-weight="700">productpage</text>
+
+  <rect x="156" y="530" width="280" height="120" rx="24" fill="#E2E9D5"/>
+  <text x="238" y="603" fill="#38462B" font-family="Georgia, serif" font-size="34" font-weight="700">details</text>
+
+  <rect x="580" y="530" width="280" height="120" rx="24" fill="#E1E8EE"/>
+  <text x="662" y="603" fill="#273C49" font-family="Georgia, serif" font-size="34" font-weight="700">reviews</text>
+
+  <rect x="1004" y="530" width="280" height="120" rx="24" fill="#F4EAD3"/>
+  <text x="1092" y="603" fill="#59461F" font-family="Georgia, serif" font-size="34" font-weight="700">ratings</text>
+
+  <path d="M720 360V486" stroke="#7D2F16" stroke-width="7" stroke-linecap="round"/>
+  <path d="M720 486L698 456H742L720 486Z" fill="#7D2F16"/>
+
+  <path d="M622 360L344 518" stroke="#7D2F16" stroke-width="7" stroke-linecap="round"/>
+  <path d="M344 518L366 486L386 522L344 518Z" fill="#7D2F16"/>
+
+  <path d="M818 360L1096 518" stroke="#7D2F16" stroke-width="7" stroke-linecap="round"/>
+  <path d="M1096 518L1054 522L1074 486L1096 518Z" fill="#7D2F16"/>
+
+  <path d="M860 590H1004" stroke="#7D2F16" stroke-width="7" stroke-linecap="round"/>
+  <path d="M1004 590L972 568V612L1004 590Z" fill="#7D2F16"/>
+
+  <rect x="398" y="724" width="644" height="110" rx="24" fill="#2B2620"/>
+  <text x="444" y="790" fill="#FAF4EA" font-family="Georgia, serif" font-size="28">이 구조 덕분에 트래픽 분할, 장애 주입, 관측성, 보안 정책을 같은 앱으로 반복 실험할 수 있다.</text>
+</svg>

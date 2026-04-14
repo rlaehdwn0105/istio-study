@@ -1,0 +1,31 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1440" height="900" rx="36" fill="#FAF4EA"/>
+  <rect x="76" y="78" width="1288" height="744" rx="30" fill="#FFFDF8" stroke="#D7CAB5" stroke-width="2"/>
+  <text x="110" y="150" fill="#7D2F16" font-family="Georgia, serif" font-size="46" font-weight="700">마이크로서비스가 커질수록 네트워크 문제는 코드 안에서 폭발한다</text>
+  <text x="110" y="196" fill="#675C4B" font-family="Georgia, serif" font-size="24">서비스가 늘수록 공통 네트워크 기능이 중복 구현되고 운영 일관성이 무너진다.</text>
+
+  <rect x="108" y="260" width="270" height="180" rx="24" fill="#F8E0D4"/>
+  <text x="136" y="320" fill="#5A2414" font-family="Georgia, serif" font-size="30" font-weight="700">재시도 / 타임아웃</text>
+  <text x="136" y="360" fill="#5A2414" font-family="Georgia, serif" font-size="22">서비스마다 다른 클라이언트</text>
+  <text x="136" y="392" fill="#5A2414" font-family="Georgia, serif" font-size="22">라이브러리와 설정</text>
+
+  <rect x="422" y="260" width="270" height="180" rx="24" fill="#E2E9D5"/>
+  <text x="450" y="320" fill="#38462B" font-family="Georgia, serif" font-size="30" font-weight="700">보안 / 인증서</text>
+  <text x="450" y="360" fill="#38462B" font-family="Georgia, serif" font-size="22">mTLS, 토큰, 인증 정책이</text>
+  <text x="450" y="392" fill="#38462B" font-family="Georgia, serif" font-size="22">애플리케이션마다 다르게 구현</text>
+
+  <rect x="736" y="260" width="270" height="180" rx="24" fill="#F4EAD3"/>
+  <text x="764" y="320" fill="#59461F" font-family="Georgia, serif" font-size="30" font-weight="700">배포 / 버전 전환</text>
+  <text x="764" y="360" fill="#59461F" font-family="Georgia, serif" font-size="22">안전한 점진 배포를</text>
+  <text x="764" y="392" fill="#59461F" font-family="Georgia, serif" font-size="22">서비스별로 직접 구현</text>
+
+  <rect x="1050" y="260" width="270" height="180" rx="24" fill="#E1E8EE"/>
+  <text x="1078" y="320" fill="#273C49" font-family="Georgia, serif" font-size="30" font-weight="700">관측성 / 추적</text>
+  <text x="1078" y="360" fill="#273C49" font-family="Georgia, serif" font-size="22">호출 경로가 깊어질수록</text>
+  <text x="1078" y="392" fill="#273C49" font-family="Georgia, serif" font-size="22">장애 원인 파악이 어려움</text>
+
+  <rect x="274" y="540" width="892" height="188" rx="28" fill="#2B2620"/>
+  <text x="330" y="608" fill="#FAF4EA" font-family="Georgia, serif" font-size="34" font-weight="700">결론</text>
+  <text x="330" y="656" fill="#FAF4EA" font-family="Georgia, serif" font-size="28">네트워크 기능이 서비스 코드 안에 섞여 있으면</text>
+  <text x="330" y="696" fill="#FAF4EA" font-family="Georgia, serif" font-size="28">운영 정책을 통일하기도, 장애를 추적하기도, 안전하게 배포하기도 어려워진다.</text>
+</svg>

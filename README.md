@@ -11,8 +11,6 @@
 
 - `posts/week1-istio-intro.md`
   - 1주차 장문 블로그 글
-- `assets/diagrams/`
-  - 1주차 설명용 도식
 - `week1/practice/`
   - Bookinfo 실습 파일
 - `references/week1-links.md`
@@ -23,3 +21,4 @@
 - 실제 공부는 `posts/` 아래 글을 기준으로 진행
 - 실습이 필요할 때만 `week1/practice/`를 참고
 - 참고 자료는 링크 수준으로만 유지
+- 그림은 외부 이미지 대신 Markdown 안의 직접 작성 도식으로 정리

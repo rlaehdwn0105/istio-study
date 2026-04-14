@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="ko">
+
+                                                                                <head>
+                <script type="text/javascript">if (!window.T) { window.T = {} }
+window.T.config = {"TOP_SSL_URL":"https://www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"","NEXT_PAGE":"","BLOG":{"id":4755371,"name":"kschoi728","title":"Ssoon","isDormancy":false,"nickName":"구구달스","status":"open","profileStatus":"normal"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https://www.tistory.com/auth/login/?redirectUrl=https://kschoi728.tistory.com/317","DEFAULT_URL":"https://kschoi728.tistory.com","USER":{"name":null,"homepage":null,"id":0,"profileImage":null},"SUBSCRIPTION":{"status":"none","isConnected":false,"isPending":false,"isWait":false,"isProcessing":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"IS_SUPPORT":false,"IS_SCRAPABLE":false,"TOP_URL":"http://www.tistory.com","JOIN_URL":"https://www.tistory.com/member/join","PHASE":"prod","ROLE_GROUP":"visitor"};
+window.T.entryInfo = {"entryId":317,"isAuthor":false,"categoryId":1504328,"categoryLabel":"Istio Hands-on Study [1기]"};
+window.appInfo = {"domain":"tistory.com","topUrl":"https://www.tistory.com","loginUrl":"https://www.tistory.com/auth/login","logoutUrl":"https://www.tistory.com/auth/logout"};
+window.initData = {};
+
+window.TistoryBlog = {
+    basePath: "",
+    url: "https://kschoi728.tistory.com",
+    tistoryUrl: "https://kschoi728.tistory.com",
+    manageUrl: "https://kschoi728.tistory.com/manage",
+    token: "iCpy/CB7pfUdIpY3cAFLQRfj+7EfIWCeYyfTvynTxjNhq+NYQKmLwzYkbbidjX+u"
+};
+var servicePath = "";
+var blogURL = "";</script>
+
+                
+                
+                
+                        <!-- BusinessLicenseInfo - START -->
+        
+            <link href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/plugin/BusinessLicenseInfo/style.css" rel="stylesheet" type="text/css"/>
+
+            <script>function switchFold(entryId) {
+    var businessLayer = document.getElementById("businessInfoLayer_" + entryId);
+
+    if (businessLayer) {
+        if (businessLayer.className.indexOf("unfold_license") > 0) {
+            businessLayer.className = "business_license_layer";
+        } else {
+            businessLayer.className = "business_license_layer unfold_license";
+        }
+    }
+}
+</script>
+
+        
+        <!-- BusinessLicenseInfo - END -->
+        <!-- DaumShow - START -->
+        <style type="text/css">#daumSearchBox {
+    height: 21px;
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+    margin: 5px auto;
+    padding: 0;
+}
+
+#daumSearchBox input {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#daumSearchBox #daumLogo {
+    width: 34px;
+    height: 21px;
+    float: left;
+    margin-right: 5px;
+    background-image: url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+}
+
+#daumSearchBox #show_q {
+    background-color: transparent;
+    border: none;
+    font: 12px Gulim, Sans-serif;
+    color: #555;
+    margin-top: 4px;
+    margin-right: 15px;
+    float: left;
+}
+
+#daumSearchBox #show_btn {
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+    width: 37px;
+    height: 21px;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    text-indent: -1000em;
+}
+</style>
+
+        <!-- DaumShow - END -->
+
+<!-- System - START -->
+
+<!-- System - END -->
+
+        <!-- TistoryProfileLayer - START -->
+        <link href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/plugin/TistoryProfileLayer/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/plugin/TistoryProfileLayer/script.js"></script>
+
+        <!-- TistoryProfileLayer - END -->
+
+                
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="format-detection" content="telephone=no">
+<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//t1.daumcdn.net/tiara/js/v1/tiara-1.2.0.min.js"></script><meta name="referrer" content="always"/>
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338"/>
+<meta name="google-adsense-platform-domain" content="tistory.com"/>
+<meta name="description" content="✅ Istio Control PlaneIstio는 서비스 메시 를 관리하는 도구입니다.그 중심에는 컨트롤 플레인(Control Plane) 이라는 부분이 있습니다. 이 컨트롤 플레인은 전체 메시를 설정하고, 관찰하고, 관리하는 역할을 합니다.🔧 컨트롤 플레인이 하는 일:트래픽을 어떻게 보낼지 정하는 라우팅 규칙 설정데이터 플레인(=사이드카 프록시)이 설정을 받아가는 API 제공서비스 간 통신을 도와주는 서비스 디스커버리누가 어떤 서비스를 사용할 수 있는지 정하는 사용 정책 관리보안 인증서 발급 및 갱신각 서비스(워크로드)에 신원 부여모니터링 데이터 수집사이드카 프록시 자동 주입네트워크 경계 설정 및 접근 제어이 모든 기능은 대부분 istiod라는 하나의 주요 컴포넌트에서 처리합니다.추가로 인그레스(들어.."/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://kschoi728.tistory.com/317"/>
+<meta property="og.article.author" content="구구달스"/>
+<meta property="og:site_name" content="Ssoon"/>
+<meta property="og:title" content="1주차 : Istio 첫걸음 (3) - Istio Control Plane"/>
+<meta name="by" content="구구달스"/>
+<meta property="og:description" content="✅ Istio Control PlaneIstio는 서비스 메시 를 관리하는 도구입니다.그 중심에는 컨트롤 플레인(Control Plane) 이라는 부분이 있습니다. 이 컨트롤 플레인은 전체 메시를 설정하고, 관찰하고, 관리하는 역할을 합니다.🔧 컨트롤 플레인이 하는 일:트래픽을 어떻게 보낼지 정하는 라우팅 규칙 설정데이터 플레인(=사이드카 프록시)이 설정을 받아가는 API 제공서비스 간 통신을 도와주는 서비스 디스커버리누가 어떤 서비스를 사용할 수 있는지 정하는 사용 정책 관리보안 인증서 발급 및 갱신각 서비스(워크로드)에 신원 부여모니터링 데이터 수집사이드카 프록시 자동 주입네트워크 경계 설정 및 접근 제어이 모든 기능은 대부분 istiod라는 하나의 주요 컴포넌트에서 처리합니다.추가로 인그레스(들어.."/>
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbsG7Bl%2FbtsNiOSUY6H%2FAAAAAAAAAAAAAAAAAAAAAEFFwyTU7K8bw_40zNr_VaqDiLDdv3IcNBULPL1fBL-G%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3D8Y1K6fSIfXHougAelXmFN%252FbxdTw%253D"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@TISTORY"/>
+<meta name="twitter:title" content="1주차 : Istio 첫걸음 (3) - Istio Control Plane"/>
+<meta name="twitter:description" content="✅ Istio Control PlaneIstio는 서비스 메시 를 관리하는 도구입니다.그 중심에는 컨트롤 플레인(Control Plane) 이라는 부분이 있습니다. 이 컨트롤 플레인은 전체 메시를 설정하고, 관찰하고, 관리하는 역할을 합니다.🔧 컨트롤 플레인이 하는 일:트래픽을 어떻게 보낼지 정하는 라우팅 규칙 설정데이터 플레인(=사이드카 프록시)이 설정을 받아가는 API 제공서비스 간 통신을 도와주는 서비스 디스커버리누가 어떤 서비스를 사용할 수 있는지 정하는 사용 정책 관리보안 인증서 발급 및 갱신각 서비스(워크로드)에 신원 부여모니터링 데이터 수집사이드카 프록시 자동 주입네트워크 경계 설정 및 접근 제어이 모든 기능은 대부분 istiod라는 하나의 주요 컴포넌트에서 처리합니다.추가로 인그레스(들어.."/>
+<meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbsG7Bl%2FbtsNiOSUY6H%2FAAAAAAAAAAAAAAAAAAAAAEFFwyTU7K8bw_40zNr_VaqDiLDdv3IcNBULPL1fBL-G%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3D8Y1K6fSIfXHougAelXmFN%252FbxdTw%253D"/>
+<meta content="https://kschoi728.tistory.com/317" property="dg:plink" content="https://kschoi728.tistory.com/317"/>
+<meta name="plink"/>
+<meta name="title" content="1주차 : Istio 첫걸음 (3) - Istio Control Plane"/>
+<meta name="article:media_name" content="Ssoon"/>
+<meta property="article:mobile_url" content="https://kschoi728.tistory.com/m/317"/>
+<meta property="article:pc_url" content="https://kschoi728.tistory.com/317"/>
+<meta property="article:mobile_view_url" content="https://kschoi728.tistory.com/m/317"/>
+<meta property="article:pc_view_url" content="https://kschoi728.tistory.com/317"/>
+<meta property="article:talk_channel_view_url" content="https://kschoi728.tistory.com/m/317"/>
+<meta property="article:pc_service_home" content="https://www.tistory.com"/>
+<meta property="article:mobile_service_home" content="https://www.tistory.com/m"/>
+<meta property="article:txid" content="4755371_317"/>
+<meta property="article:published_time" content="2025-04-12T18:33:26+09:00"/>
+<meta property="og:regDate" content="20250412063326"/>
+<meta property="article:modified_time" content="2025-04-12T22:55:13+09:00"/>
+<script type="module" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/pc/dist/index.js" defer=""></script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/pc/dist/index-legacy.js" defer="" nomodule="true"></script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/pc/dist/polyfills-legacy.js" defer="" nomodule="true"></script>
+<link rel="icon" sizes="any" href="https://t1.daumcdn.net/tistory_admin/favicon/tistory_favicon_32x32.ico"/>
+<link rel="icon" type="image/svg+xml" href="https://t1.daumcdn.net/tistory_admin/top_v2/bi-tistory-favicon.svg"/>
+<link rel="apple-touch-icon" href="https://t1.daumcdn.net/tistory_admin/top_v2/tistory-apple-touch-favicon.png"/>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/www/style/font.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/style/content.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/pc/dist/index.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/style/uselessPMargin.css"/>
+<script type="text/javascript">(function() {
+    var tjQuery = jQuery.noConflict(true);
+    window.tjQuery = tjQuery;
+    window.orgjQuery = window.jQuery; window.jQuery = tjQuery;
+    window.jQuery = window.orgjQuery; delete window.orgjQuery;
+})()</script>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/script/base.js"></script>
+<script type="text/javascript" src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+                
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<title>1주차 : Istio 첫걸음 (3) - Istio Control Plane</title>
+	<link rel="alternate" type="application/rss+xml" title="Ssoon" href="https://kschoi728.tistory.com/rss" />
+
+	<link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/4755371/skin/style.css?_version_=1666716226">
+	<link rel="stylesheet" href="https://tistory1.daumcdn.net/tistory/4755371/skin/images/font.css?_version_=1666716226">
+	<style>
+		
+		.wrap_sub {
+			background-image: url('https://tistory1.daumcdn.net/tistory/4755371/skinSetting/35207a6470b24728ba5d80722fd05573');
+		}
+		
+	</style>
+
+	<!--[if lt IE 9]>
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+	<!--[if gte IE 9]><!-->
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<!--<![endif]-->
+
+                
+                
+                <style type="text/css">.another_category {
+    border: 1px solid #E5E5E5;
+    padding: 10px 10px 5px;
+    margin: 10px 0;
+    clear: both;
+}
+
+.another_category h4 {
+    font-size: 12px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #E5E5E5 !important;
+    padding: 2px 0 6px !important;
+}
+
+.another_category h4 a {
+    font-weight: bold !important;
+}
+
+.another_category table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+
+* html .another_category table {
+    width: auto !important;
+}
+
+*:first-child + html .another_category table {
+    width: auto !important;
+}
+
+.another_category th, .another_category td {
+    padding: 0 0 4px !important;
+}
+
+.another_category th {
+    text-align: left;
+    font-size: 12px !important;
+    font-weight: normal;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.another_category td {
+    text-align: right;
+    width: 80px;
+    font-size: 11px;
+}
+
+.another_category th a {
+    font-weight: normal;
+    text-decoration: none;
+    border: none !important;
+}
+
+.another_category th a.current {
+    font-weight: bold;
+    text-decoration: none !important;
+    border-bottom: 1px solid !important;
+}
+
+.another_category th span {
+    font-weight: normal;
+    text-decoration: none;
+    font: 10px Tahoma, Sans-serif;
+    border: none !important;
+}
+
+.another_category_color_gray, .another_category_color_gray h4 {
+    border-color: #E5E5E5 !important;
+}
+
+.another_category_color_gray * {
+    color: #909090 !important;
+}
+
+.another_category_color_gray th a.current {
+    border-color: #909090 !important;
+}
+
+.another_category_color_gray h4, .another_category_color_gray h4 a {
+    color: #737373 !important;
+}
+
+.another_category_color_red, .another_category_color_red h4 {
+    border-color: #F6D4D3 !important;
+}
+
+.another_category_color_red * {
+    color: #E86869 !important;
+}
+
+.another_category_color_red th a.current {
+    border-color: #E86869 !important;
+}
+
+.another_category_color_red h4, .another_category_color_red h4 a {
+    color: #ED0908 !important;
+}
+
+.another_category_color_green, .another_category_color_green h4 {
+    border-color: #CCE7C8 !important;
+}
+
+.another_category_color_green * {
+    color: #64C05B !important;
+}
+
+.another_category_color_green th a.current {
+    border-color: #64C05B !important;
+}
+
+.another_category_color_green h4, .another_category_color_green h4 a {
+    color: #3EA731 !important;
+}
+
+.another_category_color_blue, .another_category_color_blue h4 {
+    border-color: #C8DAF2 !important;
+}
+
+.another_category_color_blue * {
+    color: #477FD6 !important;
+}
+
+.another_category_color_blue th a.current {
+    border-color: #477FD6 !important;
+}
+
+.another_category_color_blue h4, .another_category_color_blue h4 a {
+    color: #1960CA !important;
+}
+
+.another_category_color_violet, .another_category_color_violet h4 {
+    border-color: #E1CEEC !important;
+}
+
+.another_category_color_violet * {
+    color: #9D64C5 !important;
+}
+
+.another_category_color_violet th a.current {
+    border-color: #9D64C5 !important;
+}
+
+.another_category_color_violet h4, .another_category_color_violet h4 a {
+    color: #7E2CB5 !important;
+}
+</style>
+
+                
+                <link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/style/revenue.css"/>
+<link rel="canonical" href="https://kschoi728.tistory.com/317"/>
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https://kschoi728.tistory.com/317","name":null},"url":"https://kschoi728.tistory.com/317","headline":"1주차 : Istio 첫걸음 (3) - Istio Control Plane","description":"✅&nbsp;Istio Control&nbsp;PlaneIstio는 서비스 메시 를 관리하는 도구입니다.그 중심에는&nbsp;컨트롤 플레인(Control Plane)&nbsp;이라는 부분이 있습니다. 이 컨트롤 플레인은 전체 메시를&nbsp;설정하고, 관찰하고, 관리하는 역할을 합니다.🔧&nbsp;컨트롤 플레인이 하는 일:트래픽을 어떻게 보낼지 정하는&nbsp;라우팅 규칙 설정데이터 플레인(=사이드카 프록시)이 설정을 받아가는&nbsp;API 제공서비스 간 통신을 도와주는&nbsp;서비스 디스커버리누가 어떤 서비스를 사용할 수 있는지 정하는&nbsp;사용 정책 관리보안 인증서 발급 및 갱신각 서비스(워크로드)에&nbsp;신원 부여모니터링 데이터 수집사이드카 프록시 자동 주입네트워크 경계 설정 및 접근 제어이 모든 기능은 대부분&nbsp;istiod라는 하나의 주요 컴포넌트에서 처리합니다.추가로&nbsp;인그레스(들어..","author":{"@type":"Person","name":"구구달스","logo":null},"image":{"@type":"ImageObject","url":"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbsG7Bl%2FbtsNiOSUY6H%2FAAAAAAAAAAAAAAAAAAAAAEFFwyTU7K8bw_40zNr_VaqDiLDdv3IcNBULPL1fBL-G%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3D8Y1K6fSIfXHougAelXmFN%252FbxdTw%253D","width":"800px","height":"800px"},"datePublished":"2025-04-12T18:33:26+09:00","dateModified":"2025-04-12T22:55:13+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png","width":"800px","height":"800px"}}}
+</script>
+<!-- END STRUCTURED_DATA -->
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/style/dialog.css"/>
+<link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/tistory_admin/www/style/top/font.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/style/postBtn.css"/>
+<link rel="stylesheet" type="text/css" href="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/style/tistory.css"/>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/script/common.js"></script>
+
+                
+                </head>
+
+                                                <body id="tt-body-page">
+                
+                
+                
+
+
+	<div id="dkIndex">
+		<!--웹접근성용 바로가기 링크 모음-->
+		<a href="#dkBody">본문 바로가기</a>
+	</div>
+	<div id="dkWrap" class="wrap_skin">
+		<!-- 카테고리버튼 클릭시 'navi_on' 클래스 부여 -->
+		<div id="dkHead" role="banner" class="area_head">
+			<h1 class="screen_out">Ssoon</h1>
+			<button type="button" class="btn_cate">
+				<span class="ico_skin ico_cate">카테고리</span>
+			</button>
+			<div class="area_search ">
+				<button type="button" class="btn_search">
+					<span class="ico_skin ico_search">검색하기</span>
+				</button>
+				
+					<form action="#" method="get" class="frm_search box_search" onsubmit="try {
+    window.location.href = '/search' + '/' + looseURIEncode(document.getElementsByName('search')[0].value);
+    document.getElementsByName('search')[0].value = '';
+    return false;
+} catch (e) {}">
+						<fieldset>
+							<legend class="screen_out">검색하기</legend>
+							<label for="search" class="lab_search screen_out">블로그 내 검색</label>
+							<input type="text" name="search" id="search" class="tf_search" placeholder="Search" value="" data-value="">
+							<span class="ico_skin ico_search"></span>
+						</fieldset>
+					</form>
+				
+			</div>
+			<div class="area_profile">
+				<div class="tit_post">
+					<a href="/" class="link_post">Ssoon</a>
+				</div>
+				<span class="thumb_profile">
+                <img src="https://tistory1.daumcdn.net/tistory/4755371/attach/cba16cc9b6db4bc6833da62cd73cc45a" class="img_profile" alt="프로필사진">
+            </span>
+				<span class="txt_profile">구구달스</span>
+			</div>
+		</div>
+		<hr class="hide">
+		<div id="dkContent" class="cont_skin" role="main">
+			<div id="cMain">
+				<div id="mFeature" class="wrap_sub">
+					<div class="cont_sub">
+						<div class="inner_sub">
+							<div class="area_sub">
+								<div role="navigation" class="area_navi">
+									<ul class="tt_category"><li class=""><a href="/category" class="link_tit"> 분류 전체보기 <span class="c_cnt">(359)</span> </a>
+  <ul class="category_list"><li class=""><a href="/category/Terraform%20101%20Study%202%EA%B8%B0" class="link_item"> Terraform 101 Study 2기 <span class="c_cnt">(17)</span> </a></li>
+<li class=""><a href="/category/Database%20Operator%20In%20Kubernetes%20study" class="link_item"> Database Operator In Kubern.. <span class="c_cnt">(15)</span> </a></li>
+<li class=""><a href="/category/Terraform%20101%20Study" class="link_item"> Terraform 101 Study <span class="c_cnt">(28)</span> </a></li>
+<li class=""><a href="/category/Production%20Kubernetes%20Online%20Study" class="link_item"> Production Kubernetes Onlin.. <span class="c_cnt">(26)</span> </a></li>
+<li class=""><a href="/category/AWS%20EKS%20Workshop%20Study" class="link_item"> AWS EKS Workshop Study <span class="c_cnt">(31)</span> </a></li>
+<li class=""><a href="/category/AWS%20Hacking%20%26%20Security%20Study" class="link_item"> AWS Hacking &amp; Security Stud.. <span class="c_cnt">(15)</span> </a></li>
+<li class=""><a href="/category/Azure" class="link_item"> Azure <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="/category/Ansible%20101%20Study" class="link_item"> Ansible 101 Study <span class="c_cnt">(12)</span> </a></li>
+<li class=""><a href="/category/%EC%8A%A4%ED%94%84%EB%A7%81%20%EB%B6%80%ED%8A%B83" class="link_item"> 스프링 부트3 <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="/category/%ED%98%BC%EC%9E%90%20%EA%B3%B5%EB%B6%80%ED%95%98%EB%8A%94%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D" class="link_item"> 혼자 공부하는 데이터분석 <span class="c_cnt">(5)</span> </a></li>
+<li class=""><a href="/category/AWS%20EKS%20Kubernetes-Masterclass" class="link_item"> AWS EKS Kubernetes-Mastercl.. <span class="c_cnt">(0)</span> </a></li>
+<li class=""><a href="/category/%EB%82%98%EB%8A%94%EB%A6%AC%EB%B7%B0%EC%96%B4%EB%8B%A42024" class="link_item"> 나는리뷰어다2024 <span class="c_cnt">(0)</span> </a></li>
+<li class=""><a href="/category/AWS%20EKS%20Workshop%20Study%202%EA%B8%B0" class="link_item"> AWS EKS Workshop Study 2기 <span class="c_cnt">(21)</span> </a></li>
+<li class=""><a href="/category/MLOps" class="link_item"> MLOps <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="/category/%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4%20%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC%20%EC%8A%A4%ED%84%B0%EB%94%94%203%EA%B8%B0" class="link_item"> 쿠버네티스 네트워크 스터디 3기 <span class="c_cnt">(39)</span> </a></li>
+<li class=""><a href="/category/CICD%20%EB%A7%9B%EB%B3%B4%EA%B8%B0" class="link_item"> CICD 맛보기 <span class="c_cnt">(11)</span> </a></li>
+<li class=""><a href="/category/%EC%BD%94%EB%94%A9%EC%9E%90%EC%9C%A8%ED%95%99%EC%8A%B5" class="link_item"> 코딩자율학습 <span class="c_cnt">(0)</span> </a></li>
+<li class=""><a href="/category/Istio%20Hands-on%20Study%20%5B1%EA%B8%B0%5D" class="link_item"> Istio Hands-on Study [1기] <span class="c_cnt">(66)</span> </a></li>
+<li class=""><a href="/category/CICD%20Study%20%5B1%EA%B8%B0%5D" class="link_item"> CICD Study [1기] <span class="c_cnt">(52)</span> </a></li>
+</ul>
+</li>
+</ul>
+
+									<a href="https://kschoi728.tistory.com/guestbook" class="link_guestbook">Guestbook</a>
+								</div>
+								<div class="wrap_etc">
+									<div class="col_aside left_side">
+										
+												<!-- 공지사항 -->
+												
+													<div class="box_aside">
+														<strong class="tit_aside">Notice</strong>
+														<ul class="list_board">
+															
+														</ul>
+													</div>
+												
+											
+												<!-- 최근에 올라온 글 -->
+												<div class="box_aside">
+													<strong class="tit_aside">Recent Posts</strong>
+													<ul class="list_board">
+														
+															<li><a href="/463" class="link_board">HashiCorp Vault - Server TL⋯</a></li>
+														
+															<li><a href="/462" class="link_board">HashiCorp Vault - Auth with⋯</a></li>
+														
+															<li><a href="/461" class="link_board">HashiCorp Vault - High Avai⋯</a></li>
+														
+															<li><a href="/460" class="link_board">HashiCorp Vault - Vault Sec⋯</a></li>
+														
+													</ul>
+												</div>
+											
+												<!-- 최근에 달린 댓글 -->
+												<div class="box_aside">
+													<strong class="tit_aside">Recent Comments</strong>
+													<ul class="list_board">
+														
+															<li><a href="/24#comment23048865" class="link_board">감동적인 내용입니다 제 블로그에도 방문해 주시면 더욱 ⋯</a></li>
+														
+															<li><a href="/278#comment23047239" class="link_board">안녕하십니까 정성이 묻어나는 글 광고 클릭 후 나갑니다</a></li>
+														
+															<li><a href="/391#comment23037900" class="link_board">포스팅 덕분에 힐링되는 기분이에요. 감사합니다.</a></li>
+														
+															<li><a href="/316#comment23031378" class="link_board">블로그 분위기 너무 좋아요 저도 배우고 있어요 시간 되⋯</a></li>
+														
+													</ul>
+												</div>
+											
+												<!-- 링크 -->
+												<div class="box_aside">
+													<strong class="tit_aside">Link</strong>
+													<ul class="list_board">
+														
+													</ul>
+												</div>
+											
+									</div>
+
+
+									<div class="col_aside right_side">
+										
+												<!-- 달력 -->
+												<div class="box_aside box_calendar">
+													<table class="tt-calendar" cellpadding="0" cellspacing="1" style="width: 100%; table-layout: fixed">
+  <caption class="cal_month"><a href="/archive/202603" title="1개월 앞의 달력을 보여줍니다.">«</a> &nbsp; <a href="/archive/202604" title="현재 달의 달력을 보여줍니다.">2026/04</a> &nbsp; <a href="/archive/202605" title="1개월 뒤의 달력을 보여줍니다.">»</a></caption>
+  <thead>
+    <tr>
+      <th class="cal_week2">일</th>
+      <th class="cal_week1">월</th>
+      <th class="cal_week1">화</th>
+      <th class="cal_week1">수</th>
+      <th class="cal_week1">목</th>
+      <th class="cal_week1">금</th>
+      <th class="cal_week1">토</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="cal_week cal_current_week">
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day cal_day3">1</td>
+      <td class="cal_day cal_day3">2</td>
+      <td class="cal_day cal_day3">3</td>
+      <td class="cal_day cal_day3">4</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">5</td>
+      <td class="cal_day cal_day3">6</td>
+      <td class="cal_day cal_day3">7</td>
+      <td class="cal_day cal_day3">8</td>
+      <td class="cal_day cal_day3">9</td>
+      <td class="cal_day cal_day3">10</td>
+      <td class="cal_day cal_day3">11</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">12</td>
+      <td class="cal_day cal_day3">13</td>
+      <td class="cal_day cal_day4">14</td>
+      <td class="cal_day cal_day3">15</td>
+      <td class="cal_day cal_day3">16</td>
+      <td class="cal_day cal_day3">17</td>
+      <td class="cal_day cal_day3">18</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">19</td>
+      <td class="cal_day cal_day3">20</td>
+      <td class="cal_day cal_day3">21</td>
+      <td class="cal_day cal_day3">22</td>
+      <td class="cal_day cal_day3">23</td>
+      <td class="cal_day cal_day3">24</td>
+      <td class="cal_day cal_day3">25</td>
+    </tr>
+    <tr class="cal_week">
+      <td class="cal_day cal_day3 cal_day_sunday">26</td>
+      <td class="cal_day cal_day3">27</td>
+      <td class="cal_day cal_day3">28</td>
+      <td class="cal_day cal_day3">29</td>
+      <td class="cal_day cal_day3">30</td>
+      <td class="cal_day1 cal_day2"> </td>
+      <td class="cal_day1 cal_day2"> </td>
+    </tr>
+  </tbody>
+</table>
+												</div>
+											
+												<!-- 글 보관함 -->
+												<div class="box_aside box_archive">
+													<strong class="tit_aside">Archives</strong>
+													<ul class="list_keep">
+														
+															<li><a href="/archive/202512" class="link_keep">2025/12</a> (4)</li>
+														
+															<li><a href="/archive/202511" class="link_keep">2025/11</a> (9)</li>
+														
+															<li><a href="/archive/202510" class="link_keep">2025/10</a> (32)</li>
+														
+													</ul>
+												</div>
+											
+												<!-- 방문자수 -->
+												<div class="box_aside box_visitor">
+													<dl class="list_visitor">
+														<dt>Today</dt>
+														<dd>132</dd>
+													</dl>
+													<dl class="list_total">
+														<dt>Total</dt>
+														<dd>170,300</dd>
+													</dl>
+												</div>
+											
+									</div>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="ico_skin btn_close">닫기</button>
+
+						<strong class="screen_out">관리 메뉴</strong>
+						<ul class="list_control">
+							<li><a href="https://kschoi728.tistory.com/manage/entry/post" class="ico_skin link_write" title="글쓰기">글쓰기</a></li>
+							<li><a href="https://kschoi728.tistory.com/guestbook" class="ico_skin link_memo" title="방명록">방명록</a></li>
+							<li><a href="https://kschoi728.tistory.com/rss" class="ico_skin link_rss" title="RSS">RSS</a></li>
+							<li><a href="https://kschoi728.tistory.com/manage" class="ico_skin link_manage" title="관리">관리</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="mArticle" class="article_skin">
+
+					
+
+					<div class="index_title">
+						<h2 class="tit_skin"><span class="txt_title">Ssoon</span></h2>
+					</div>
+
+					           
+               
+	
+
+
+	
+		<h2 id="dkBody" class="screen_out">1주차 : Istio 첫걸음 (3) - Istio Control Plane 본문</h2>
+		<div class="area_title">
+			<strong class="tit_category"><a href="/category/Istio%20Hands-on%20Study%20%5B1%EA%B8%B0%5D">Istio Hands-on Study [1기]</a></strong>
+			<h3 class="tit_post">1주차 : Istio 첫걸음 (3) - Istio Control Plane</h3>
+			<span class="info_post">구구달스
+                           <span class="txt_bar"></span>2025. 4. 12. 18:33
+			
+		</span>
+		</div>
+
+		<div class="area_view">
+			            <!-- System - START -->
+
+<!-- System - END -->
+
+            <div class="tt_article_useless_p_margin contents_style"><h2 style="background-color: #ffffff; color: #5c5c5c; text-align: start;" data-ke-size="size26"><b><span style="background-color: #ffffff; color: #555555;">✅<span><span>&nbsp;</span></span><span style="color: #1b711d;"><span style="background-color: #ffffff; text-align: start;">Istio Control&nbsp;Plane</span></span></span></b></h2>
+<p><figure class="imageblock alignCenter" data-ke-mobileStyle="widthOrigin" data-origin-width="1012" data-origin-height="603"><span data-url="https://blog.kakaocdn.net/dna/bsG7Bl/btsNiOSUY6H/AAAAAAAAAAAAAAAAAAAAAEFFwyTU7K8bw_40zNr_VaqDiLDdv3IcNBULPL1fBL-G/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=8Y1K6fSIfXHougAelXmFN%2FbxdTw%3D" data-phocus="https://blog.kakaocdn.net/dna/bsG7Bl/btsNiOSUY6H/AAAAAAAAAAAAAAAAAAAAAEFFwyTU7K8bw_40zNr_VaqDiLDdv3IcNBULPL1fBL-G/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=8Y1K6fSIfXHougAelXmFN%2FbxdTw%3D"><img src="https://blog.kakaocdn.net/dna/bsG7Bl/btsNiOSUY6H/AAAAAAAAAAAAAAAAAAAAAEFFwyTU7K8bw_40zNr_VaqDiLDdv3IcNBULPL1fBL-G/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=8Y1K6fSIfXHougAelXmFN%2FbxdTw%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbsG7Bl%2FbtsNiOSUY6H%2FAAAAAAAAAAAAAAAAAAAAAEFFwyTU7K8bw_40zNr_VaqDiLDdv3IcNBULPL1fBL-G%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3D8Y1K6fSIfXHougAelXmFN%252FbxdTw%253D" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" loading="lazy" width="1012" height="603" data-origin-width="1012" data-origin-height="603"/></span></figure>
+</p>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #5c5c5c; text-align: start;" data-ke-list-type="disc">
+<li style="list-style-type: disc;" data-start="83" data-end="207">Istio는 서비스 메시 를 관리하는 도구입니다.</li>
+<li style="list-style-type: disc;" data-start="83" data-end="207">그 중심에는&nbsp;컨트롤 플레인(Control Plane)&nbsp;이라는 부분이 있습니다. 이 컨트롤 플레인은 전체 메시를&nbsp;설정하고, 관찰하고, 관리하는 역할을 합니다.</li>
+</ul>
+<h3 style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size23" data-end="241" data-start="219">🔧<span>&nbsp;</span>컨트롤 플레인이 하는 일:</h3>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-list-type="disc" data-start="229" data-end="484">
+<li style="list-style-type: disc;" data-start="229" data-end="261">트래픽을 어떻게 보낼지 정하는<span>&nbsp;</span><b>라우팅 규칙 설정</b></li>
+<li style="list-style-type: disc;" data-start="262" data-end="303">데이터 플레인(=사이드카 프록시)이 설정을 받아가는<span>&nbsp;</span><b>API 제공</b></li>
+<li style="list-style-type: disc;" data-start="304" data-end="334">서비스 간 통신을 도와주는<span>&nbsp;</span><b>서비스 디스커버리</b></li>
+<li style="list-style-type: disc;" data-start="335" data-end="374">누가 어떤 서비스를 사용할 수 있는지 정하는<span>&nbsp;</span><b>사용 정책 관리</b></li>
+<li style="list-style-type: disc;" data-start="375" data-end="395"><b>보안 인증서 발급 및 갱신</b></li>
+<li style="list-style-type: disc;" data-start="396" data-end="420">각 서비스(워크로드)에<span>&nbsp;</span><b>신원 부여</b></li>
+<li style="list-style-type: disc;" data-start="421" data-end="438"><b>모니터링 데이터 수집</b></li>
+<li style="list-style-type: disc;" data-start="439" data-end="459"><b>사이드카 프록시 자동 주입</b></li>
+<li style="list-style-type: disc;" data-start="460" data-end="484"><b>네트워크 경계 설정 및 접근 제어</b></li>
+</ul>
+<p style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size16" data-start="486" data-end="597">이 모든 기능은 대부분<span>&nbsp;</span><b>istiod라는 하나의 주요 컴포넌트</b>에서 처리합니다.<br />추가로<span>&nbsp;</span><b>인그레스(들어오는)</b>,<span>&nbsp;</span><b>이그레스(나가는)</b><span>&nbsp;</span>트래픽을 처리하는 게이트웨이도 함께 사용됩니다.</p>
+<h2 style="background-color: #ffffff; color: #5c5c5c; text-align: start;" data-ke-size="size26"><b><span style="background-color: #ffffff; color: #555555;">✅<span><span><span>&nbsp;</span></span></span><span style="color: #1b711d;"><span style="background-color: #ffffff; text-align: start;">Istiod</span></span></span></b></h2>
+<p><figure class="imageblock alignCenter" data-ke-mobileStyle="widthOrigin" data-origin-width="1133" data-origin-height="530"><span data-url="https://blog.kakaocdn.net/dna/pHEN4/btsNjyPhG5K/AAAAAAAAAAAAAAAAAAAAACvzCuqK11aO3sOTlvlyx2hPYeF_jkMUVx0xFLYMy7j7/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=sNXMmjD8nKT5j7Fb5cripnV4k34%3D" data-phocus="https://blog.kakaocdn.net/dna/pHEN4/btsNjyPhG5K/AAAAAAAAAAAAAAAAAAAAACvzCuqK11aO3sOTlvlyx2hPYeF_jkMUVx0xFLYMy7j7/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=sNXMmjD8nKT5j7Fb5cripnV4k34%3D"><img src="https://blog.kakaocdn.net/dna/pHEN4/btsNjyPhG5K/AAAAAAAAAAAAAAAAAAAAACvzCuqK11aO3sOTlvlyx2hPYeF_jkMUVx0xFLYMy7j7/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=sNXMmjD8nKT5j7Fb5cripnV4k34%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FpHEN4%2FbtsNjyPhG5K%2FAAAAAAAAAAAAAAAAAAAAACvzCuqK11aO3sOTlvlyx2hPYeF_jkMUVx0xFLYMy7j7%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3DsNXMmjD8nKT5j7Fb5cripnV4k34%253D" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" loading="lazy" width="1133" height="530" data-origin-width="1133" data-origin-height="530"/></span></figure>
+</p>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #5c5c5c; text-align: start;" data-ke-list-type="disc">
+<li style="list-style-type: disc;">Istiod는&nbsp;Istio의 두뇌&nbsp;역할을 하는 컨트롤 플레인 컴포넌트입니다.</li>
+<li style="list-style-type: disc;">사용자가 작성한 설정(YAML)을 실제 네트워크 프록시(Envoy) 가 사용할 수 있도록 변환해주는 역할을 합니다.</li>
+</ul>
+<h3 style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size23" data-start="219" data-end="241">🔧 Istiod가 하는 일 요약</h3>
+<div style="background-color: #ffffff; color: #0d0d0d; text-align: start;">
+<div>
+<table style="text-align: left; border-collapse: collapse; width: 100%;" border="1" data-ke-align="alignLeft" data-start="243" data-end="537">
+<tbody data-start="271" data-end="537">
+<tr data-start="271" data-end="323">
+<td style="color: #666666;" data-start="271" data-end="286">📦<span>&nbsp;</span><b>설정 해석</b></td>
+<td style="color: #666666;" data-start="286" data-end="323">사용자가 만든 YAML 설정(예: 트래픽 분산)을 읽고 해석</td>
+</tr>
+<tr data-start="324" data-end="376">
+<td style="color: #666666;" data-start="324" data-end="345">🔄<span>&nbsp;</span><b>Envoy 설정 생성</b></td>
+<td style="color: #666666;" data-start="345" data-end="376">해석한 설정을 Envoy가 이해하는 형식으로 변환</td>
+</tr>
+<tr data-start="377" data-end="431">
+<td style="color: #666666;" data-start="377" data-end="395">🔌<span>&nbsp;</span><b>프록시들과 통신</b></td>
+<td style="color: #666666;" data-start="395" data-end="431">Envoy 프록시들에게 설정을 전달 (xDS API 사용)</td>
+</tr>
+<tr data-start="432" data-end="486">
+<td style="color: #666666;" data-start="432" data-end="451">🔐<span>&nbsp;</span><b>보안 인증서 발급</b></td>
+<td style="color: #666666;" data-start="451" data-end="486">각 서비스에 신원을 부여하고, 트래픽을 암호화(mTLS)</td>
+</tr>
+<tr data-start="487" data-end="537">
+<td style="color: #666666;" data-start="487" data-end="506">🔎<span>&nbsp;</span><b>동적 서비스 탐색</b></td>
+<td style="color: #666666;" data-start="506" data-end="537">서비스가 바뀌면 자동으로 반영 (무중단 업데이트)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h3 style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size23" data-start="1777" data-end="1801">🔐 ID 및 보안 관리 (mTLS)</h3>
+<p><figure class="imageblock alignCenter" data-ke-mobileStyle="widthOrigin" data-origin-width="786" data-origin-height="505"><span data-url="https://blog.kakaocdn.net/dna/856lg/btsNkwXuC8q/AAAAAAAAAAAAAAAAAAAAAGR8R25xbLJbWhVRL82-6Vyi_b4M3Si3TPi6E0PVb49F/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=AsON8POqymlHrjq5FalxkWwLJPg%3D" data-phocus="https://blog.kakaocdn.net/dna/856lg/btsNkwXuC8q/AAAAAAAAAAAAAAAAAAAAAGR8R25xbLJbWhVRL82-6Vyi_b4M3Si3TPi6E0PVb49F/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=AsON8POqymlHrjq5FalxkWwLJPg%3D"><img src="https://blog.kakaocdn.net/dna/856lg/btsNkwXuC8q/AAAAAAAAAAAAAAAAAAAAAGR8R25xbLJbWhVRL82-6Vyi_b4M3Si3TPi6E0PVb49F/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=AsON8POqymlHrjq5FalxkWwLJPg%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F856lg%2FbtsNkwXuC8q%2FAAAAAAAAAAAAAAAAAAAAAGR8R25xbLJbWhVRL82-6Vyi_b4M3Si3TPi6E0PVb49F%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3DAsON8POqymlHrjq5FalxkWwLJPg%253D" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" loading="lazy" width="786" height="505" data-origin-width="786" data-origin-height="505"/></span></figure>
+</p>
+<p style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size16" data-start="1803" data-end="1866">Istio는 각 서비스에 신원(identity) 을 부여하고,&nbsp; 모든 트래픽을 암호화(mTLS) 합니다.</p>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-list-type="disc" data-start="1868" data-end="1966">
+<li style="list-style-type: disc;" data-start="1868" data-end="1889">📜<span>&nbsp;</span><b>X.509 인증서</b><span>&nbsp;</span>사용</li>
+<li style="list-style-type: disc;" data-start="1890" data-end="1918">🧾<span>&nbsp;</span><b>SPIFFE 표준</b><span>&nbsp;</span>기반의 ID 부여</li>
+<li style="list-style-type: disc;" data-start="1919" data-end="1966">🔄<span>&nbsp;</span><b>자동 발급 및 갱신</b>: 애플리케이션이 키를 직접 관리하지 않아도 됩니다.</li>
+</ul>
+<blockquote style="background-color: #fcfcfc; color: #666666; text-align: left;" data-ke-style="style3">Istiod는 사용자의 네트워크 정책을 Envoy가 실행할 수 있게 바꿔주는 뇌 역할을 하며, 서비스 간 통신을 안전하게 연결해줍니다.</blockquote>
+<h2 style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size26" data-start="56" data-end="102">🧩 Istio와 Kubernetes Custom Resources</h2>
+<p style="background-color: #ffffff; color: #555555; text-align: start;" data-ke-size="size16"><span style="background-color: #ffffff; color: #0d0d0d; text-align: start;">Istio는 Kubernetes 위에 설치되면,<span>&nbsp;</span></span><b>Istio만의 설정 방식</b><span style="background-color: #ffffff; color: #0d0d0d; text-align: start;">을 사용하기 위해<span>&nbsp;</span></span><span style="background-color: #ffffff; color: #0d0d0d; text-align: start;">Custom Resource Definitions (CRDs) 를 사용</span></p>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-list-type="disc" data-start="241" data-end="509">
+<li style="list-style-type: disc;" data-start="241" data-end="301">Kubernetes는 기본적으로<span>&nbsp;</span><b>Pod, Service, Deployment</b><span>&nbsp;</span>같은 자원만 알아요.</li>
+<li style="list-style-type: disc;" data-start="302" data-end="378">그런데 Istio는<span>&nbsp;</span><b>VirtualService</b>,<span>&nbsp;</span><b>DestinationRule</b><span>&nbsp;</span>같은<span>&nbsp;</span><b>새로운 설정 객체</b>가 필요합니다..</li>
+<li style="list-style-type: disc;" data-start="379" data-end="436">그래서 Istio는 Kubernetes에 "이런 것도 쓸 수 있게 해줘!" 하고 CRD를 등록합니다.</li>
+</ul>
+<blockquote style="background-color: #fcfcfc; color: #666666; text-align: left;" data-ke-style="style3">Istio는 Kubernetes에 자신만의 설정 방식(CR)을 추가해서, 기존 Kubernetes 도구로 쉽게 제어할 수 있도록 합니다.</blockquote>
+<h2 style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size26" data-start="47" data-end="81">🔄 Istio 설정 &rarr; Envoy 설정으로 바꾸는 과정</h2>
+<p style="background-color: #ffffff; color: #555555; text-align: start;" data-ke-size="size16"><span style="background-color: #ffffff; color: #0d0d0d; text-align: start;">Istio에서 작성한 설정(VirtualService 등)은<span>&nbsp;</span></span><b>istiod</b><span style="background-color: #ffffff; color: #0d0d0d; text-align: start;">가 받아서<span>&nbsp;</span></span><b>Envoy 프록시가 이해할 수 있는 방식</b><span style="background-color: #ffffff; color: #0d0d0d; text-align: start;">으로 자동으로 바꿔줍니다.<span>&nbsp;</span></span><span style="background-color: #ffffff; color: #0d0d0d; text-align: start;">이걸 통해 Envoy는 어떤 요청을 어디로 보낼지 알 수 있습니다..</span></p>
+<h3 style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size23" data-start="233" data-end="250">📌 어떻게 작동하나요?</h3>
+<ol style="list-style-type: decimal; background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-list-type="decimal" data-start="252" data-end="395">
+<li style="list-style-type: decimal;" data-start="252" data-end="314"><b>사용자가 YAML 설정 작성</b><br />예: 어떤 요청은<span>&nbsp;</span>v2, 나머지는<span>&nbsp;</span>v1<span>&nbsp;</span>서비스로 보내기</li>
+<li style="list-style-type: decimal;" data-start="315" data-end="335"><b>Istiod가 읽고 분석</b></li>
+<li style="list-style-type: decimal;" data-start="336" data-end="359"><b>Envoy 전용 설정으로 번역</b></li>
+<li style="list-style-type: decimal;" data-start="360" data-end="395"><b>Envoy 프록시에게 전달</b><span>&nbsp;</span>(API로 실시간 전달)</li>
+</ol>
+<h3 style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size23" data-start="695" data-end="728">🧠 이 과정을 도와주는 기술:<span>&nbsp;</span><b>xDS API</b></h3>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-list-type="disc" data-start="730" data-end="897">
+<li style="list-style-type: disc;" data-start="730" data-end="776">istiod는 Envoy와 통신할 때<span>&nbsp;</span><b>xDS API</b>라는 표준을 사용합니다.</li>
+<li style="list-style-type: disc;" data-start="777" data-end="897">주요 API들:
+<ul style="list-style-type: disc;" data-ke-list-type="disc" data-start="790" data-end="897">
+<li style="list-style-type: disc;" data-start="790" data-end="821"><b>LDS</b>: 어떤 포트를 열지 (Listener)</li>
+<li style="list-style-type: disc;" data-start="824" data-end="858"><b>RDS</b>: 어떤 URL이 어디로 가는지 (Route)</li>
+<li style="list-style-type: disc;" data-start="861" data-end="897"><b>EDS</b>: 어떤 IP로 요청을 보낼지 (Endpoint)</li>
+</ul>
+</li>
+</ul>
+<p style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size16" data-start="899" data-end="948">이 API 덕분에 Envoy는 설정이 바뀌어도<span>&nbsp;</span><b>중단 없이</b><span>&nbsp;</span>바로 반영할 수 있습니다.</p>
+<blockquote style="background-color: #fcfcfc; color: #666666; text-align: left;" data-ke-style="style3" data-start="899" data-end="948">Istio의 설정은 istiod가 Envoy 설정으로 바꿔서, 프록시들이 자동으로 트래픽을 올바르게 라우팅하도록 해줍니다.</blockquote>
+<p style="background-color: #ffffff; color: #555555; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<h2 style="background-color: #ffffff; color: #5c5c5c; text-align: start;" data-ke-size="size26"><b><span style="background-color: #ffffff; color: #555555;">✅<span><span><span>&nbsp;</span></span></span><span style="color: #1b711d;"><span style="background-color: #ffffff; text-align: start;">Istio의&nbsp;Ingress&nbsp;&amp;&nbsp;Egress&nbsp;Gateway</span></span></span></b></h2>
+<p><figure class="imageblock alignCenter" data-ke-mobileStyle="widthOrigin" data-origin-width="1060" data-origin-height="706"><span data-url="https://blog.kakaocdn.net/dna/bZXgbt/btsNiQwrV41/AAAAAAAAAAAAAAAAAAAAAFhPKE4wfTt3EWF39nFvv7cYGgpXCJ7h26y3blwaMy-e/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=vzvys9vC%2F7PnJs0uWEXgalrnLHc%3D" data-phocus="https://blog.kakaocdn.net/dna/bZXgbt/btsNiQwrV41/AAAAAAAAAAAAAAAAAAAAAFhPKE4wfTt3EWF39nFvv7cYGgpXCJ7h26y3blwaMy-e/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=vzvys9vC%2F7PnJs0uWEXgalrnLHc%3D"><img src="https://blog.kakaocdn.net/dna/bZXgbt/btsNiQwrV41/AAAAAAAAAAAAAAAAAAAAAFhPKE4wfTt3EWF39nFvv7cYGgpXCJ7h26y3blwaMy-e/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1777561199&allow_ip=&allow_referer=&signature=vzvys9vC%2F7PnJs0uWEXgalrnLHc%3D" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbZXgbt%2FbtsNiQwrV41%2FAAAAAAAAAAAAAAAAAAAAAFhPKE4wfTt3EWF39nFvv7cYGgpXCJ7h26y3blwaMy-e%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3Dvzvys9vC%252F7PnJs0uWEXgalrnLHc%253D" onerror="this.onerror=null; this.src='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png'; this.srcset='//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png';" loading="lazy" width="1060" height="706" data-origin-width="1060" data-origin-height="706"/></span></figure>
+</p>
+<p style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size16" data-start="119" data-end="196">애플리케이션이 외부와 통신하려면<span>&nbsp;</span><b>클러스터 밖으로 나가거나 들어오는 트래픽</b>을 제어할 수 있어야 합니.<br />이 역할을 하는 것이 바로:</p>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-list-type="disc" data-start="198" data-end="307">
+<li style="list-style-type: disc;" data-start="198" data-end="254"><b>Ingress Gateway</b><span>&nbsp;</span>👉 클러스터<span>&nbsp;</span><b>밖에서 안으로</b><span>&nbsp;</span>들어오는 트래픽을 관리</li>
+<li style="list-style-type: disc;" data-start="255" data-end="307"><b>Egress Gateway</b><span>&nbsp;</span>👉 클러스터<span>&nbsp;</span><b>안에서 밖으로</b><span>&nbsp;</span>나가는 트래픽을 관리</li>
+</ul>
+<h3 style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size23" data-start="314" data-end="329">📌 왜 필요한가요?</h3>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-list-type="disc" data-start="331" data-end="425">
+<li style="list-style-type: disc;" data-start="331" data-end="379">외부 시스템(예: DB, 메시지 큐, 외부 API)과 안전하게 통신하려면 필수.</li>
+<li style="list-style-type: disc;" data-start="380" data-end="425">어떤 트래픽이 오가도록 허용할지<span>&nbsp;</span><b>명확히 설정</b>할 수 있어 보안에 유리.</li>
+</ul>
+<h3 style="background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-size="size23" data-start="432" data-end="446">🧱 구성 요소는?</h3>
+<ul style="list-style-type: disc; background-color: #ffffff; color: #0d0d0d; text-align: start;" data-ke-list-type="disc" data-start="448" data-end="590">
+<li style="list-style-type: disc;" data-start="448" data-end="490">Ingress/Egress Gateway는<span>&nbsp;</span><b>Envoy 프록시</b>예요.</li>
+<li style="list-style-type: disc;" data-start="491" data-end="590">애플리케이션 옆에 붙는 사이드카 프록시와 거의 같지만,
+<ul style="list-style-type: disc;" data-ke-list-type="disc" data-start="526" data-end="590">
+<li style="list-style-type: disc;" data-start="526" data-end="559"><b>애플리케이션에 종속되지 않고 독립적으로 동작</b>합니다.</li>
+<li style="list-style-type: disc;" data-start="562" data-end="590">단지<span>&nbsp;</span><b>들어오고 나가는 트래픽만</b><span>&nbsp;</span>담당합니다.</li>
+</ul>
+</li>
+</ul>
+<blockquote style="background-color: #fcfcfc; color: #666666; text-align: left;" data-ke-style="style3">Ingress/Egress Gateway는 클러스터 안팎의 트래픽을 안전하고 정밀하게 제어해주는 출입문 역할을 합니다.</blockquote>
+<div id="gtx-trans" style="position: absolute; left: 88px; top: 58.9062px;">
+<div class="gtx-trans-icon">&nbsp;</div>
+</div></div>
+            <!-- System - START -->
+
+<!-- System - END -->
+
+                    <div class="container_postbtn #post_button_group">
+  <div class="postbtn_like"><script>window.ReactionButtonType = 'reaction';
+window.ReactionApiUrl = '//kschoi728.tistory.com/reaction';
+window.ReactionReqBody = {
+    entryId: 317
+}</script>
+<div class="wrap_btn" id="reaction-317" data-tistory-react-app="Reaction"></div><div class="wrap_btn wrap_btn_share"><button type="button" class="btn_post sns_btn btn_share" aria-expanded="false" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbsG7Bl%2FbtsNiOSUY6H%2FAAAAAAAAAAAAAAAAAAAAAEFFwyTU7K8bw_40zNr_VaqDiLDdv3IcNBULPL1fBL-G%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3D8Y1K6fSIfXHougAelXmFN%252FbxdTw%253D" data-title="1주차 : Istio 첫걸음 (3) - Istio Control Plane" data-description="✅ Istio Control PlaneIstio는 서비스 메시 를 관리하는 도구입니다.그 중심에는 컨트롤 플레인(Control Plane) 이라는 부분이 있습니다. 이 컨트롤 플레인은 전체 메시를 설정하고, 관찰하고, 관리하는 역할을 합니다.🔧 컨트롤 플레인이 하는 일:트래픽을 어떻게 보낼지 정하는 라우팅 규칙 설정데이터 플레인(=사이드카 프록시)이 설정을 받아가는 API 제공서비스 간 통신을 도와주는 서비스 디스커버리누가 어떤 서비스를 사용할 수 있는지 정하는 사용 정책 관리보안 인증서 발급 및 갱신각 서비스(워크로드)에 신원 부여모니터링 데이터 수집사이드카 프록시 자동 주입네트워크 경계 설정 및 접근 제어이 모든 기능은 대부분 istiod라는 하나의 주요 컴포넌트에서 처리합니다.추가로 인그레스(들어.." data-profile-image="https://tistory1.daumcdn.net/tistory/4755371/attach/cba16cc9b6db4bc6833da62cd73cc45a" data-profile-name="구구달스" data-pc-url="https://kschoi728.tistory.com/317" data-relative-pc-url="/317" data-blog-title="Ssoon"><span class="ico_postbtn ico_share">공유하기</span></button>
+  <div class="layer_post" id="tistorySnsLayer"></div>
+</div><div class="wrap_btn wrap_btn_etc" data-entry-id="317" data-entry-visibility="public" data-category-visibility="public"><button type="button" class="btn_post btn_etc2" aria-expanded="false"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+  <div class="layer_post" id="tistoryEtcLayer"></div>
+</div></div>
+<button type="button" class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="4755371" data-url="https://kschoi728.tistory.com/317" data-device="web_pc" data-tiara-action-name="구독 버튼_클릭"><em class="txt_state"></em><strong class="txt_tool_id">Ssoon</strong><span class="img_common_tistory ico_check_type1"></span></button><div class="postbtn_ccl" data-ccl-type="2" data-ccl-derive="1">
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" target="_blank" class="link_ccl" rel="license">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span> 
+        </span>
+        <span class="screen_out">(새창열림)</span>
+    </a>
+</div>
+<!--
+<rdf:RDF xmlns="https://web.resource.org/cc/" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="https://creativecommons.org/licenses/by/4.0/deed.ko" />
+    </Work>
+    <License rdf:about="https://creativecommons.org/licenses/by/4.0/deed.ko">
+        <permits rdf:resource="https://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="https://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="https://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="https://web.resource.org/cc/Attribution"/>
+        <permits rdf:resource="https://web.resource.org/cc/DerivativeWorks"/>
+
+    </License>
+</rdf:RDF>
+-->  <div data-tistory-react-app="SupportButton"></div>
+</div>
+
+                    <!-- PostListinCategory - START -->
+<div class="another_category another_category_color_gray">
+  <h4>'<a href="/category/Istio%20Hands-on%20Study%20%5B1%EA%B8%B0%5D">Istio Hands-on Study [1기]</a>' 카테고리의 다른 글</h4>
+  <table>
+    <tr>
+      <th><a href="/319">1주차 : Istio 첫걸음 (5) - Observability</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2025.04.12</td>
+    </tr>
+    <tr>
+      <th><a href="/318">1주차 : Istio 첫걸음 (4) - 서비스 메시에 첫 번째 애플리케이션 배포</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2025.04.12</td>
+    </tr>
+    <tr>
+      <th><a href="/316">1주차 : Istio 첫걸음 (2) - Istio 1.17.8 설치</a>&nbsp;&nbsp;<span>(3)</span></th>
+      <td>2025.04.12</td>
+    </tr>
+    <tr>
+      <th><a href="/315">1주차 : Istio 첫걸음 (1) - 실습환경설정</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2025.04.12</td>
+    </tr>
+    <tr>
+      <th><a href="/310">1주차 : Istio 이해하기 (2)</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2025.04.09</td>
+    </tr>
+  </table>
+</div>
+
+<!-- PostListinCategory - END -->
+
+		</div>
+		<div class="area_etc">
+			
+		</div>
+
+		
+			<div class="area_related">
+				<strong class="tit_related">'Istio Hands-on Study [1기]' Related Articles</strong>
+				<ul class="list_related">
+					
+						<li class="thumb_type">
+							<a href="/319?category=1504328" class="link_related">
+								
+								<span class="thumb_related">
+									<img src="//i1.daumcdn.net/thumb/C185x200/?fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FtHQpj%2FbtsNjCjNinB%2FAAAAAAAAAAAAAAAAAAAAAGnW_tGAFl37fNXMEM284z82wPAd6UG5DerteRr1GrfL%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3Ds3i7mmg1pJn%252FIscFToARP%252BdrS9I%253D" class="img_related" alt="">
+								</span>
+								
+								<span class="txt_related">1주차 : Istio 첫걸음 (5) - Observability</span>
+								<span class="date_related">2025.04.12</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+						<li class="thumb_type">
+							<a href="/318?category=1504328" class="link_related">
+								
+								<span class="thumb_related">
+									<img src="//i1.daumcdn.net/thumb/C185x200/?fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FVCt9b%2FbtsNiL3ayZb%2FAAAAAAAAAAAAAAAAAAAAADX3jwbvKcY_Qin6LSNwVrdFllWJ74ERHbfmw5RrF0rw%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3DDnjZSN8aIkWYCxmS3BjFXJfkDu4%253D" class="img_related" alt="">
+								</span>
+								
+								<span class="txt_related">1주차 : Istio 첫걸음 (4) - 서비스 메시에 첫 번째 애플리케이션 배포</span>
+								<span class="date_related">2025.04.12</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+						<li class="text_type">
+							<a href="/316?category=1504328" class="link_related">
+								
+								<span class="txt_related">1주차 : Istio 첫걸음 (2) - Istio 1.17.8 설치</span>
+								<span class="date_related">2025.04.12</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+						<li class="thumb_type">
+							<a href="/315?category=1504328" class="link_related">
+								
+								<span class="thumb_related">
+									<img src="//i1.daumcdn.net/thumb/C185x200/?fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fy4UOC%2FbtsNiO6nkbg%2FAAAAAAAAAAAAAAAAAAAAAEUXDZlsDvge3nFF_48f5A6KeediKGvd19ZUy7_Oj2hO%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1777561199%26allow_ip%3D%26allow_referer%3D%26signature%3DKWDUxuZev1I4Cjqt3pu4DxeUk3g%253D" class="img_related" alt="">
+								</span>
+								
+								<span class="txt_related">1주차 : Istio 첫걸음 (1) - 실습환경설정</span>
+								<span class="date_related">2025.04.12</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+				</ul>
+				<a href="/category/Istio%20Hands-on%20Study%20%5B1%EA%B8%B0%5D" class="link_more">more</a>
+			</div>
+		
+
+		<div class="area_reply">
+			<strong class="tit_reply" onclick=""><span id="commentCount317_0">0</span>  Comments</strong>
+			<div data-tistory-react-app="Namecard"></div><div id="entry317Comment">
+				
+					<ul class="list_reply">
+						            
+
+            
+
+					</ul>
+				
+
+				       <form method="post" action="/comment/add/317" onsubmit="return false" style="margin: 0">
+           
+<fieldset class="fld_reply">
+	<legend class="screen_out">댓글쓰기 폼</legend>
+	
+		
+			<div class="writer_info">
+                                          <span class="info_name">
+                                              <label for="name" class="lab_info screen_out">이름</label>
+                                              <span class="wrap_info">
+                                                  <input type="text" name="name" id="name" class="inp_info" placeholder="Name" tabindex="1">
+                                              </span>
+                                          </span>
+				<span class="info_pw ">
+                                              <label for="password" class="lab_info screen_out">비밀번호</label>
+                                              <span class="wrap_info">
+                                                  <input type="password" name="password" id="password" class="inp_info" placeholder="Password" tabindex="2">
+                                              </span>
+                                          </span>
+			</div>
+		
+		<div class="writer_check">
+                                      <span class="check_secret ">
+                                          <input type="checkbox" name="secret" id="secret" class="inp_secret" tabindex="4">
+                                          <label for="secret" class="lab_secret">
+                                              <span class="ico_skin ico_check"></span>
+                                              Secret
+                                          </label>
+                                      </span>
+		</div>
+	
+
+	<div class="reply_write ">
+		<label for="comment" class="lab_write screen_out">댓글</label>
+		<textarea name="comment" id="comment" class="tf_reply" placeholder="여러분의 소중한 댓글을 입력해주세요" tabindex="3"></textarea>
+	</div>
+
+	<div class="writer_btn">
+		<button type="submit" class="btn_enter" onclick="addComment(this, 317); return false;" tabindex="5">Send</button>
+	</div>
+</fieldset>
+
+       </form>
+			</div>
+<script type="text/javascript">loadedComments[317]=true;
+findFragmentAndHighlight(317);</script>
+
+		</div>
+
+
+	
+
+               
+           
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+				</div>
+			</div>
+		</div>
+		<hr class="hide">
+		<div id="dkFoot" role="contentinfo" class="area_foot">
+			<small class="info_copyright">
+				Blog is powered by
+				<a href="http://www.axzcorp.com" class="emph_t" target="_blank">AXZ</a> / Designed by
+				<a href="http://www.tistory.com" class="emph_t" target="_blank">Tistory</a>
+			</small>
+		</div>
+	</div>
+
+
+
+<script src="https://tistory1.daumcdn.net/tistory/4755371/skin/images/script.js?_version_=1666716226"></script>
+<div class="#menubar menu_toolbar ">
+  <h2 class="screen_out">티스토리툴바</h2>
+</div>
+<div class="#menubar menu_toolbar "></div>
+<div class="layer_tooltip">
+  <div class="inner_layer_tooltip">
+    <p class="desc_g"></p>
+  </div>
+</div>
+<div id="editEntry" style="position:absolute;width:1px;height:1px;left:-100px;top:-100px"></div>
+
+
+                <!-- DragSearchHandler - START -->
+<script src="//search1.daumcdn.net/search/statics/common/js/g/search_dragselection.min.js"></script>
+
+<!-- DragSearchHandler - END -->
+
+<!-- RainbowLink - START -->
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/plugin/RainbowLink/script.js"></script>
+
+<!-- RainbowLink - END -->
+
+        <!-- SyntaxHighlight - START -->
+        <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/default.min.css" rel="stylesheet"/><script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/delphi.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/php.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/r.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/ruby.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/scala.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/swift.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/typescript.min.js" defer></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/vbnet.min.js" defer></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+        <!-- SyntaxHighlight - END -->
+
+                
+                <div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<script type="text/javascript" src="https://tistory1.daumcdn.net/tistory_admin/userblog/userblog-91597a4fd4b809d820e03b8cb7c3f10bb5ffa703/static/script/common.js"></script>
+
+                
+                <script>window.tiara = {"svcDomain":"user.tistory.com","section":"글뷰","trackPage":"글뷰_보기","page":"글뷰","key":"4755371-317","customProps":{"userId":"0","blogId":"4755371","entryId":"317","role":"guest","trackPage":"글뷰_보기","filterTarget":false},"entry":{"entryId":"317","entryTitle":"1주차 : Istio 첫걸음 (3) - Istio Control Plane","entryType":"POST","categoryName":"Istio Hands-on Study [1기]","categoryId":"1504328","serviceCategoryName":null,"serviceCategoryId":null,"author":"4919765","authorNickname":"구구달스","blogNmae":"Ssoon","image":"kage@bsG7Bl/btsNiOSUY6H/tR6pdGXKscK7syS9wE9570","plink":"/317","tags":[]},"kakaoAppKey":"3e6ddd834b023f24221217e370daed18","appUserId":"null","thirdProvideAgree":null}</script>
+<script type="module" src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.7/index.js"></script>
+<script src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.7/polyfills-legacy.js" nomodule="true" defer="true"></script>
+<script src="https://t1.daumcdn.net/tistory_admin/frontend/tiara/v1.0.7/index-legacy.js" nomodule="true" defer="true"></script>
+
+                </body>
+
+</html>
